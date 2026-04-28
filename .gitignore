@@ -1,0 +1,8 @@
+shelter_env/
+shelter_env_312/
+*.duckdb
+__pycache__/
+.ipynb_checkpoints/
+target/
+dbt_packages/
+logs/
