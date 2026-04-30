@@ -24,25 +24,26 @@ Socrata API → ingest.py → DuckDB (shelter.duckdb) → dbt → Analysis-Ready
    and one at the visit level.
 
 ## Project Structure
+```
 Meowtcomes/
 ├── ingest.py                   # Socrata API ingestion script
 ├── shelter.duckdb              # Local DuckDB warehouse
 ├── EDA_V3.ipynb                # Exploratory data analysis
 └── shelter_dbt/
-├── dbt_project.yml
-└── models/
-├── staging/
-│   ├── stg_intakes.sql
-│   ├── stg_outcomes.sql
-│   └── schema.yml
-├── intermediate/
-│   ├── int_animals_joined.sql
-│   └── schema.yml
-└── marts/
-├── mart_animal_summary.sql
-├── mart_visit_detail.sql
-└── schema.yml
-
+    ├── dbt_project.yml
+    └── models/
+        ├── staging/
+        │   ├── stg_intakes.sql
+        │   ├── stg_outcomes.sql
+        │   └── schema.yml
+        ├── intermediate/
+        │   ├── int_animals_joined.sql
+        │   └── schema.yml
+        └── marts/
+            ├── mart_animal_summary.sql
+            ├── mart_visit_detail.sql
+            └── schema.yml
+```
 ## Models
 
 **Staging**
