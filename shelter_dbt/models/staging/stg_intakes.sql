@@ -11,9 +11,9 @@ SELECT strftime(cast(datetime AS DATE), '%Y-%m-%d') as intake_date,
         ELSE 'Other' 
         END AS category,
     animal_type AS type,
-    CASE WHEN sex_upon_intake LIKE '%Intact%' THEN 'no'
+    CASE WHEN sex_upon_intake LIKE '%Intact%' THEN 'yes'
         WHEN sex_upon_intake LIKE '%Spayed%' THEN 'yes'
-        WHEN sex_upon_intake LIKE '%Neutered%' THEN 'yes'
+        WHEN sex_upon_intake LIKE '%Neutered%' THEN 'no'
         ELSE 'unknown'
         END AS is_spayed,
     CASE WHEN sex_upon_intake LIKE '%Male%' THEN 'Male'

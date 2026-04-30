@@ -48,6 +48,7 @@ SELECT f.animal_id,
     a.last_outcome_type,
     a.last_outcome_subtype,
     a.total_days_in_shelter,
-    a.spayed_neutered_in_shelter
+    a.spayed_neutered_in_shelter,
+    a.ever_adopted
 FROM first_visit f
 LEFT JOIN aggregated a ON f.animal_id = a.animal_id

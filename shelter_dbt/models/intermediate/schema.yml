@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: int_animals_joined
+    description: "Table with intake and outcome data joined together based on the animal_id and visit_number. Some animals are in the care of Austin Animal Shelter multiple times, and account for that by tracking visits"
+    columns:
+      - name: animal_id
+        description: "Unique ID of the animal provided by the Austin Animal Shelter"
+        tests:
+          - not_null
+      - name: visit_number
+        description: "The specific visit that the animal was in the care of the Austin Animal Shelter"
+      - name: total_visits
+        description: "Total times that the animal was in the care of the Austin Animal Shelter"
+      - name: is_repeat_visitor
+        description: "True/False based on whether the animal has total visits greater than 1"
+      - name: days_in_shelter
+        description: "Total number of days in the shelter for a visit if there is a matching intake/outcome record. If there is no final outcome record, the date is calculated based on current date"
+      - name: intake_date
+        description: "Date that the animal was acquired by the Austin Animal Shelter for that specific visit"
+      - name: outcome_date
+        description: "Date that the animal was released by the Austin Animal Shelter for that specific visit"
+      - name: category
+        description: "Standardized grouping of animal type into Dog, Cat, or Other"
+      - name: type
+        description: "Raw animal type provided by the source system (e.g. Dog, Cat, Kitten, Rabbit)"
+      - name: breed
+        description: "Breed of the animal"
+      - name: is_spayed
+        description: "Yes/No/Unknown based on spay/neuter status at intake for that specific visit"
+      - name: is_spayed_outcome
+        description: "Yes/No/Unknown based on spay/neuter status at release for that specific visit"
+      - name: sex
+        description: "Sex of the animal"
+      - name: color
+        description: "Color of the animal"
+      - name: dob
+        description: "Date of birth of the animal"
+      - name: age
+        description: "Age of the animal at intake"
+      - name: location
+        description: "Address or area where the animal was found or surrendered"
+      - name: intake_time
+        description: "Time of intake for that specific visit"
+      - name: outcome_time
+        description: "Time of release for that specific visit"
+      - name: name
+        description: "Name of the animal at intake"
+      - name: health
+        description: "Health condition of the animal at intake"
+      - name: outcome_type
+        description: "Outcome of the animal being released"
+      - name: outcome_subtype
+        description: "Additional details on the outcome of the animal being released"

@@ -1,0 +1,101 @@
+version: 2
+
+models:
+  - name: mart_animal_summary
+    description: "Animal-level data available for analysis. If animals have multiple entries in the intakes/outakes dataset, only information around their first and last visits will be recorded"
+    columns:
+      - name: animal_id
+        description: "Unique ID of the animal provided by the Austin Animal Shelter"
+        tests:
+          - not_null
+          - unique
+      - name: category
+        description: "Standardized grouping of animal type into Dog, Cat, or Other"
+      - name: type
+        description: "Raw animal type provided by the source system (e.g. Dog, Cat, Kitten, Rabbit)"
+      - name: breed
+        description: "Breed of the animal"
+      - name: is_spayed_intake
+        description: "Yes/No/Unknown based on spay/neuter status at intake"
+      - name: sex
+        description: "Sex of the animal"
+      - name: color
+        description: "Color of the animal"
+      - name: dob
+        description: "Date of birth of the animal"
+      - name: first_intake_location
+        description: "Address or area where the animal was found or surrendered for the first visit"
+      - name: first_intake_age
+        description: "Age at intake for the first visit"
+      - name: first_intake_date
+        description: "Date that the animal was acquired by Austin Animal Shelter for the first visit"
+      - name: first_intake_health
+        description: "Health condition of the animal at intake for the first visit"
+      - name: last_outcome_date
+        description: "Date that the animal was released for the last visit"
+      - name: last_outcome_type
+        description: "Outcome of the animal that was released for the last visit. If the animal has no outcome record, this will be Null"
+      - name: last_outcome_subtype
+        description: "Additional details about the outcome of the animal that was released for the last visit"
+      - name: total_visits
+        description: "Total times that the animal was in the care of the Austin Animal Shelter"
+      - name: total_days_in_shelter
+        description: "Total days that the animal was in the shelter across all visits"
+      - name: ever_adopted
+        description: "True/False based on whether the animal has ever been adopted on record"
+      - name: is_repeat_visitor
+        description: "True/False based on whether the animal has total visits greater than 1"
+      - name: spayed_neutered_in_shelter
+        description: "True/False/Unknown based on whether the animal was spayed or neutered while in the care of the Austin Animal Shelter"
+
+  - name: mart_visit_detail
+    description: "Visit-level data available for analysis"
+    columns:
+      - name: animal_id
+        description: "Unique ID of the animal provided by the Austin Animal Shelter"
+        tests:
+          - not_null
+      - name: visit_number
+        description: "The specific visit that the animal was in the care of the Austin Animal Shelter"
+      - name: total_visits
+        description: "Total times that the animal was in the care of the Austin Animal Shelter"
+      - name: is_repeat_visitor
+        description: "True/False based on whether the animal has total visits greater than 1"
+      - name: intake_date
+        description: "Date that the animal was acquired by the Austin Animal Shelter for that specific visit"
+      - name: outcome_date
+        description: "Date that the animal was released by the Austin Animal Shelter for that specific visit"
+      - name: days_in_shelter
+        description: "Days that the animal was in the shelter for that specific visit"
+      - name: days_since_last_visit
+        description: "Days that the animal was out of the care of the Austin Animal Shelter before next intake"
+      - name: category
+        description: "Standardized grouping of animal type into Dog, Cat, or Other"
+      - name: type
+        description: "Raw animal type provided by the source system (e.g. Dog, Cat, Kitten, Rabbit)"
+      - name: breed
+        description: "Breed of the animal"
+      - name: is_spayed
+        description: "Yes/No/Unknown based on the spay/neuter status at intake"
+      - name: is_spayed_outcome
+        description: "Yes/No/Unknown based on spay/neuter status at release"
+      - name: spayed_neutered_in_shelter
+        description: "Yes/No/Unknown based on whether spay/neuter status was applied while in the care of the Austin Animal Shelter"
+      - name: sex
+        description: "Sex of the animal"
+      - name: color
+        description: "Color of the animal"
+      - name: dob
+        description: "Date of Birth of the animal"
+      - name: age
+        description: "Age of the animal"
+      - name: location
+        description: "Address or area where the animal was found or surrendered for that specific visit"
+      - name: name
+        description: "Name of the animal at intake"
+      - name: health
+        description: "Health condition of the animal at intake"
+      - name: outcome_type
+        description: "Outcome of the animal being released for that specific visit"
+      - name: outcome_subtype
+        description: "Additional details on the outcome of the animal being released for that specific visit"

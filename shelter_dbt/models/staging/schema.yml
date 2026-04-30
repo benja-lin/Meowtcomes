@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: stg_intakes
+    description: "Public Data from the Austin Animal Shelter, extracted from the Socrata API. Contains information around the intake of animals."
+    columns:
+      - name: intake_date
+        description: "Date that the animal was acquired by the Austin Animal Shelter"
+      - name: animal_id
+        description: "Unique ID of the animal provided by the Austin Animal Shelter"
+        tests:
+          - not_null
+      - name: category
+        description: "Standardized grouping of animal type into Dog, Cat, or Other"
+      - name: type
+        description: "Raw animal type provided by the source system (e.g. Dog, Cat, Kitten, Rabbit)"
+      - name: is_spayed
+        description: "Yes/No/Unknown based on spay/neuter status"
+      - name: sex
+        description: "Sex of the animal"
+      - name: breed
+        description: "Breed of the animal"
+      - name: color
+        description: "Color of the animal"
+      - name: dob
+        description: "Date of Birth"
+      - name: age
+        description: "Age of the animal at intake"
+      - name: location
+        description: "Address or area where the animal was found or surrendered"
+      - name: intake_time
+        description: "Time of intake"
+      - name: name
+        description: "Name of the animal at intake"
+      - name: health
+        description: "Health condition of the animal at intake"
+  - name: stg_outcomes
+    description: "Public Data from the Austin Animal Shelter, extracted from the Socrata API. Contains information around the outcomes of animals in their care."
+    columns:
+      - name: outcome_date
+        description: "Date that the animal was released from the Austin Animal Shelter"
+      - name: animal_id
+        description: "Unique ID of the animal provided by the Austin Animal Shelter"
+        tests:
+          - not_null
+      - name: category
+        description: "Standardized grouping of animal type into Dog, Cat, or Other"
+      - name: type
+        description: "Raw animal type provided by the source system (e.g. Dog, Cat, Kitten, Rabbit)"
+      - name: outcome_type
+        description: "Outcome of the animal being released"
+      - name: outcome_subtype
+        description: "Additional details on the outcome of the animal being released"
+      - name: is_spayed
+        description: "Yes/No/Unknown based on spay/neuter status at release"
+      - name: sex
+        description: "Sex of the animal"
+      - name: breed
+        description: "Breed of the animal"
+      - name: color
+        description: "Color of the animal"
+      - name: dob
+        description: "Date of Birth of the animal"
+      - name: age
+        description: "Age of the animal at release"
+      - name: outcome_time
+        description: "Time of release of the animal"
+      - name: name
+        description: "Name of the animal at release"
