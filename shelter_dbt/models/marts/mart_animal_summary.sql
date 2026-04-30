@@ -11,7 +11,8 @@
         location AS first_intake_location,
         age AS first_intake_age,
         intake_date AS first_intake_date,
-        health AS first_intake_health
+        health AS first_intake_health,
+        is_repeat_visitor
     FROM {{ ref('int_animals_joined') }}
     WHERE visit_number = 1
 ),
@@ -42,6 +43,7 @@ SELECT f.animal_id,
     f.first_intake_health,
     f.first_intake_age,
     f.total_visits,
+    f.is_repeat_visitor,
     a.last_outcome_date,
     a.last_outcome_type,
     a.last_outcome_subtype,

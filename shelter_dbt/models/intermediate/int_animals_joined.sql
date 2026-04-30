@@ -30,7 +30,8 @@ SELECT i.intake_date,
     o.outcome_subtype,
     o.is_spayed AS is_spayed_outcome,
     MAX(i.visit_number) OVER (PARTITION BY i.animal_id) as total_visits,
-    DATEDIFF('day', CAST(i.intake_date AS DATE), CAST(COALESCE(o.outcome_date, CAST(CURRENT_DATE AS VARCHAR)) AS DATE)) as days_in_shelter
+    DATEDIFF('day', CAST(i.intake_date AS DATE), CAST(COALESCE(o.outcome_date, CAST(CURRENT_DATE AS VARCHAR)) AS DATE)) as days_in_shelter,
+    MAX(i.visit_number) OVER (PARTITION BY i.animal_id) > 1 AS is_repeat_visitor
     FROM intakes i
     LEFT JOIN outcomes o ON i.animal_id = o.animal_id
         AND i.visit_number = o.visit_number
