@@ -11,7 +11,7 @@ import os
 from datetime import datetime
 
 # ── CONFIG ────────────────────────────────────────────────────────────────────
-DB_PATH = r"D:\Meowtakes\shelter.duckdb"
+DB_PATH = os.path.join(os.path.dirname(__file__), "shelter.duckdb")
 INTAKES_ID = "wter-evkm"   # Austin Animal Center Intakes
 OUTCOMES_ID = "9t4d-g238"  # Austin Animal Center Outcomes
 
